@@ -765,6 +765,7 @@ def main():
                 report_with_header = f"""# 적층제조 공정 분석 보고서
                 
 **생성 시간:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+**사용 모델:** {st.session_state.model_name}
 **분석 유형:** {'전체 분석 (그래프 포함)' if st.session_state.analysis_type == 'full' else '간략 분석 (텍스트만)'}
 
 ---
