@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Google Gemini API 기반 적층제조 공정 분석 애플리케이션 (Streamlit 버전)
+적층제조 공정 분석 애플리케이션 (Streamlit 버전)
 통계 분석 결과와 그래프 이미지를 입력받아 전문 보고서를 생성합니다.
 """
 
@@ -104,6 +104,15 @@ st.markdown("""
     }
     </style>
     """, unsafe_allow_html=True)
+
+# 모델 매핑 딕셔너리
+MODEL_MAPPING = {
+    "간단": "gemini-2.5-flash-lite",
+    "보통": "gemini-2.5-flash",
+    "고급": "gemini-2.5-pro"
+}
+
+
 
 # 적층제조 분석 전문 프롬프트 (현장 간결판)
 AM_ANALYSIS_PROMPT = """<ROLE>
@@ -461,9 +470,9 @@ def initialize_session_state() -> None:
     """세션 상태 초기화"""
     # getattr를 사용한 안전한 접근
     if not hasattr(st.session_state, 'api_key'):
-        st.session_state.api_key = os.environ.get("GOOGLE_API_KEY", "")
+        st.session_state.api_key = os.environ.get("API_KEY", "")
     if not hasattr(st.session_state, 'model_name'):
-        st.session_state.model_name = "gemini-2.5-flash"
+        st.session_state.model_name = "보통"
     if not hasattr(st.session_state, 'report_generated'):
         st.session_state.report_generated = False
     if not hasattr(st.session_state, 'report_content'):
@@ -478,7 +487,7 @@ def run_inference(
     images: Optional[List[Any]],  # 또는 Optional[List['PILImage']]
     prompt: str
 ) -> str:
-    """Gemini API를 사용한 추론 실행"""
+    """AI API를 사용한 추론 실행"""
     
     # API 설정
     genai.configure(api_key=api_key)
@@ -490,8 +499,11 @@ def run_inference(
         "max_output_tokens": 86384,
     }
     
+    # 실제 모델명으로 변환
+    actual_model_name = MODEL_MAPPING.get(model_name, "gemini-2.5-flash")
+    
     model = genai.GenerativeModel(
-        model_name=model_name,
+        model_name=actual_model_name,
         generation_config=generation_config,
         safety_settings={
             'HARM_CATEGORY_HARASSMENT': 'BLOCK_NONE',
@@ -528,7 +540,7 @@ def main():
         st.markdown("""
             <div style='text-align: center'>
                 <h1>🏭 적층제조 공정 분석 도구</h1>
-                <p style='color: #7f8c8d; font-size: 1.1em'>Google Gemini API 기반 보고서 생성 시스템 v2.0</p>
+                <p style='color: #7f8c8d; font-size: 1.1em'>AI 기반 보고서 생성 시스템 v2.0</p>
             </div>
         """, unsafe_allow_html=True)
     
@@ -546,10 +558,10 @@ def main():
         st.markdown("## ⚙️ API 설정")
         
         api_key = st.text_input(
-            "Google API Key",
+            "API Key 입력",
             value=st.session_state.api_key,
             type="password",
-            help="Google AI Studio에서 발급받은 API 키를 입력하세요"
+            help="AI 서비스 API 키를 입력하세요"
         )
         
         if api_key:
@@ -558,9 +570,9 @@ def main():
         
         model_name = st.selectbox(
             "모델 선택",
-            options=["gemini-2.5-flash", "gemini-2.5-pro", "gemini-2.5-flash-lite"],
-            index=0,
-            help="멀티모달 분석을 지원하는 모델을 선택하세요"
+            options=["간단", "보통", "고급"],
+            index=1,
+            help="분석 복잡도에 따라 모델을 선택하세요"
         )
         st.session_state.model_name = model_name
         
@@ -573,7 +585,7 @@ def main():
             st.info("보고서 생성 대기 중...")
     
     # 메인 컨텐츠
-    tab1, tab2, tab3, tab4 = st.tabs(["📁 파일 업로드", "📝 프롬프트 설정", "🚀 분석 실행", "📄 보고서 결과"])
+    tab1, tab2, tab3 = st.tabs(["📁 파일 업로드", "🚀 분석 실행", "📄 보고서 결과"])
     
     with tab1:
         st.markdown("### 입력 데이터 업로드")
@@ -624,11 +636,12 @@ def main():
                 st.info("💡 그래프 없이 텍스트만으로 간략 보고서 생성이 가능합니다")
     
     with tab2:
-        st.markdown("### 프롬프트 설정")
+        st.markdown("### 분석 실행")
         
         # 분석 유형 선택
+        st.markdown("#### 분석 유형 선택")
         analysis_type = st.radio(
-            "분석 유형 선택",
+            "분석 방식을 선택하세요",
             options=["full", "brief"],
             format_func=lambda x: "📊 전체 분석 (그래프 포함)" if x == "full" else "📝 간략 분석 (텍스트만)",
             horizontal=True,
@@ -636,33 +649,12 @@ def main():
         )
         st.session_state.analysis_type = analysis_type
         
-        # 프롬프트 표시 및 편집
         if analysis_type == "full":
-            st.markdown("#### 전체 분석 프롬프트 (그래프 포함)")
-            prompt = st.text_area(
-                "프롬프트 편집",
-                value=AM_ANALYSIS_PROMPT,
-                height=400,
-                help="적층제조 공정 분석을 위한 전문 프롬프트입니다"
-            )
+            st.info("📊 10개의 그래프와 통계 데이터를 함께 분석하여 상세한 보고서를 생성합니다")
         else:
-            st.markdown("#### 간략 분석 프롬프트 (텍스트만)")
-            prompt = st.text_area(
-                "프롬프트 편집",
-                value=AM_BRIEF_PROMPT,
-                height=400,
-                help="텍스트 데이터만으로 간략한 분석을 수행합니다"
-            )
+            st.info("📝 텍스트 데이터만으로 핵심 내용 위주의 간략한 보고서를 생성합니다")
         
-        with st.expander("프롬프트 설명"):
-            st.markdown("""
-            - **전체 분석**: 10개의 그래프와 통계 데이터를 함께 분석하여 상세한 보고서 생성
-            - **간략 분석**: 텍스트 데이터만으로 핵심 내용 위주의 간략한 보고서 생성
-            - 프롬프트는 수정 가능하며, AM(적층제조) 전문 용어와 분석 구조를 포함합니다
-            """)
-    
-    with tab3:
-        st.markdown("### 분석 실행")
+        st.markdown("---")
         
         # 입력 확인
         col1, col2, col3 = st.columns(3)
@@ -742,7 +734,7 @@ def main():
                     elif "api_key" in str(e).lower():
                         st.warning("💡 API 키를 확인하세요.")
     
-    with tab4:
+    with tab3:
         st.markdown("### 📄 생성된 보고서")
         
         if st.session_state.report_generated:
@@ -773,7 +765,6 @@ def main():
                 report_with_header = f"""# 적층제조 공정 분석 보고서
                 
 **생성 시간:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
-**사용 모델:** {st.session_state.model_name}
 **분석 유형:** {'전체 분석 (그래프 포함)' if st.session_state.analysis_type == 'full' else '간략 분석 (텍스트만)'}
 
 ---
@@ -815,9 +806,8 @@ def main():
             st.markdown("""
             #### 사용 방법:
             1. **파일 업로드** 탭에서 통계 데이터와 그래프 파일 업로드
-            2. **프롬프트 설정** 탭에서 분석 유형 선택 및 프롬프트 확인
-            3. **분석 실행** 탭에서 보고서 생성 버튼 클릭
-            4. 생성된 보고서가 이 탭에 표시됩니다
+            2. **분석 실행** 탭에서 분석 유형 선택 후 보고서 생성 버튼 클릭
+            3. 생성된 보고서가 이 탭에 표시됩니다
             """)
 
 if __name__ == "__main__":
