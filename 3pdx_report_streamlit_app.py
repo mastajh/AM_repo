@@ -557,11 +557,28 @@ def main():
     with st.sidebar:
         st.markdown("## ⚙️ API 설정")
         
+        # API 키 파일 업로드 기능 추가
+        api_key_file = st.file_uploader(
+            "API 키 파일 업로드 (선택사항)",
+            type=['txt'],
+            help="API 키가 담긴 텍스트 파일을 드래그 앤 드롭하세요"
+        )
+        
+        # 파일에서 API 키 읽기
+        if api_key_file:
+            try:
+                api_key_from_file = api_key_file.read().decode('utf-8').strip()
+                st.session_state.api_key = api_key_from_file
+                st.success("✅ 파일에서 API 키를 읽었습니다")
+            except Exception as e:
+                st.error(f"❌ 파일 읽기 오류: {str(e)}")
+        
+        # 기존 API 키 입력 필드
         api_key = st.text_input(
             "API Key 입력",
             value=st.session_state.api_key,
             type="password",
-            help="AI 서비스 API 키를 입력하세요"
+            help="AI 서비스 API 키를 직접 입력하거나 위에 파일을 업로드하세요"
         )
         
         if api_key:
