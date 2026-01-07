@@ -1,7 +1,7 @@
 #!/bin/bash
 #===============================================================================
 # 03_install_gpu.sh - NVIDIA GPU 드라이버 설치 (L40S용)
-# Ubuntu 24.04 서버용
+# Ubuntu 22.04 / 24.04 서버용
 #===============================================================================
 
 set -e
@@ -62,25 +62,50 @@ ubuntu-drivers devices 2>/dev/null || echo "ubuntu-drivers 정보 없음"
 echo "----------------------------------------"
 echo ""
 
+# Ubuntu 버전 확인
+UBUNTU_VERSION=$(lsb_release -rs)
+echo -e "${BLUE}Ubuntu 버전: ${UBUNTU_VERSION}${NC}"
+echo ""
+
 # 드라이버 버전 선택
 echo -e "${YELLOW}[4] 드라이버 버전 선택${NC}"
 echo ""
 echo "L40S GPU 권장 드라이버:"
-echo "  1) nvidia-driver-550 (권장 - 안정적)"
-echo "  2) nvidia-driver-545"
-echo "  3) nvidia-driver-535 (LTS)"
-echo "  4) 자동 설치 (ubuntu-drivers autoinstall)"
-echo ""
-read -p "선택하세요 (1-4, 기본값: 1): " DRIVER_CHOICE
-DRIVER_CHOICE=${DRIVER_CHOICE:-1}
 
-case $DRIVER_CHOICE in
-    1) DRIVER_PACKAGE="nvidia-driver-550" ;;
-    2) DRIVER_PACKAGE="nvidia-driver-545" ;;
-    3) DRIVER_PACKAGE="nvidia-driver-535" ;;
-    4) DRIVER_PACKAGE="auto" ;;
-    *) DRIVER_PACKAGE="nvidia-driver-550" ;;
-esac
+if [[ "$UBUNTU_VERSION" == "22.04" ]]; then
+    echo "  1) nvidia-driver-535 (권장 - 22.04 안정적)"
+    echo "  2) nvidia-driver-530"
+    echo "  3) nvidia-driver-525"
+    echo "  4) 자동 설치 (ubuntu-drivers autoinstall)"
+    echo ""
+    read -p "선택하세요 (1-4, 기본값: 1): " DRIVER_CHOICE
+    DRIVER_CHOICE=${DRIVER_CHOICE:-1}
+
+    case $DRIVER_CHOICE in
+        1) DRIVER_PACKAGE="nvidia-driver-535" ;;
+        2) DRIVER_PACKAGE="nvidia-driver-530" ;;
+        3) DRIVER_PACKAGE="nvidia-driver-525" ;;
+        4) DRIVER_PACKAGE="auto" ;;
+        *) DRIVER_PACKAGE="nvidia-driver-535" ;;
+    esac
+else
+    # Ubuntu 24.04 이상
+    echo "  1) nvidia-driver-550 (권장 - 안정적)"
+    echo "  2) nvidia-driver-545"
+    echo "  3) nvidia-driver-535 (LTS)"
+    echo "  4) 자동 설치 (ubuntu-drivers autoinstall)"
+    echo ""
+    read -p "선택하세요 (1-4, 기본값: 1): " DRIVER_CHOICE
+    DRIVER_CHOICE=${DRIVER_CHOICE:-1}
+
+    case $DRIVER_CHOICE in
+        1) DRIVER_PACKAGE="nvidia-driver-550" ;;
+        2) DRIVER_PACKAGE="nvidia-driver-545" ;;
+        3) DRIVER_PACKAGE="nvidia-driver-535" ;;
+        4) DRIVER_PACKAGE="auto" ;;
+        *) DRIVER_PACKAGE="nvidia-driver-550" ;;
+    esac
+fi
 
 echo ""
 echo -e "${YELLOW}[5] 드라이버 설치 중...${NC}"

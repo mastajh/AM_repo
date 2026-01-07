@@ -1,6 +1,8 @@
-# Ubuntu 24.04 서버 개발환경 세팅 스크립트
+# Ubuntu 22.04/24.04 서버 개발환경 세팅 스크립트
 
 블레이드 서버 + L40S GPU x2 환경을 위한 자동 설치 스크립트
+
+> **지원 OS**: Ubuntu 22.04 LTS / Ubuntu 24.04 LTS
 
 ## 📁 파일 구조
 
@@ -57,7 +59,7 @@ cd ~/ubuntu-setup-scripts
 |------|------|------|
 | Step 1 | 네트워크 설정 | DHCP 자동, Netplan 영구 설정 |
 | Step 2 | Node.js + Claude Code | NVM 사용, SSH 서버 포함 |
-| Step 3 | NVIDIA Driver 550 + CUDA | L40S 최적화, 재부팅 필요 |
+| Step 3 | NVIDIA Driver (535/550) + CUDA | L40S 최적화, 재부팅 필요 |
 | Step 4 | Docker + pyenv + Miniconda | NVIDIA Container Toolkit 포함 |
 
 ## 💡 유용한 명령어
