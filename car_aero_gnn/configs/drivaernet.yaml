@@ -1,0 +1,61 @@
+# DrivAerNet Configuration
+# Large-scale parametric car dataset
+
+data:
+  dataset: drivaernet
+  root_dir: data
+  reynolds: 5.0e6
+  inlet_velocity: 30  # m/s
+  num_train_samples: 3200
+  num_val_samples: 400
+  num_test_samples: 400
+
+model:
+  node_dim: 11
+  edge_dim: 4
+  output_dim: 4
+  latent_dim: 256  # Larger for complex geometries
+  num_layers: 20  # More layers for better accuracy
+  num_mlp_layers: 3
+  use_residual: false
+
+training:
+  epochs: 1000
+  batch_size: 2  # Smaller due to large meshes
+  learning_rate: 5.0e-5
+  weight_decay: 1.0e-5
+  optimizer: adamw
+  scheduler: cosine
+  min_lr: 1.0e-7
+
+  grad_clip: 1.0
+  noise_std: 0.005
+
+  loss_type: physics_informed
+  lambda_cont: 0.05
+  lambda_mom: 0.005
+  use_separate_losses: true
+
+  checkpoint_dir: checkpoints/drivaernet
+  save_interval: 20
+  early_stop_patience: 100
+
+  use_wandb: true
+  wandb_project: car_aero_gnn
+  experiment_name: drivaernet_large
+
+inference:
+  mode: steady
+  device: cuda
+  use_amp: true  # Mixed precision for speed
+
+visualization:
+  save_dir: outputs/drivaernet
+  formats:
+    - png
+    - vtk
+  dpi: 300
+
+physics:
+  rho: 1.225
+  mu: 1.81e-5

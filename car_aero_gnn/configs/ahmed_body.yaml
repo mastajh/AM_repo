@@ -1,0 +1,77 @@
+# Ahmed Body Configuration
+# Standard benchmark for automotive aerodynamics validation
+
+# Data configuration
+data:
+  dataset: ahmed_body
+  root_dir: data
+  slant_angle: 25  # 25° or 35°
+  reynolds: 768000  # Re based on length
+  inlet_velocity: 40  # m/s
+  reference_length: 1.044  # m
+  reference_area: 0.112  # m² (frontal area)
+
+# Model architecture
+model:
+  node_dim: 11
+  edge_dim: 4
+  output_dim: 4
+  latent_dim: 128
+  num_layers: 15  # Message passing layers
+  num_mlp_layers: 2
+  use_residual: false  # For steady-state
+
+# Training configuration
+training:
+  epochs: 500
+  batch_size: 4
+  learning_rate: 1.0e-4
+  weight_decay: 0.0
+  optimizer: adamw
+  scheduler: cosine
+  min_lr: 1.0e-6
+
+  # Gradient clipping
+  grad_clip: 1.0
+
+  # Data augmentation
+  noise_std: 0.003
+
+  # Loss function
+  loss_type: physics_informed
+  lambda_cont: 0.1  # Continuity equation weight
+  lambda_mom: 0.01  # Momentum equation weight
+  use_separate_losses: true
+
+  # Checkpointing
+  checkpoint_dir: checkpoints/ahmed_body
+  save_interval: 10
+  early_stop_patience: 50
+
+  # Logging
+  use_wandb: false
+  wandb_project: car_aero_gnn
+  experiment_name: ahmed_body_25deg
+
+# Inference configuration
+inference:
+  mode: steady  # steady or unsteady
+  device: cuda
+
+# Visualization configuration
+visualization:
+  save_dir: outputs/ahmed_body
+  formats:
+    - png
+    - vtk
+  dpi: 150
+
+# Physics parameters
+physics:
+  rho: 1.225  # kg/m³ (air density)
+  mu: 1.81e-5  # Pa·s (dynamic viscosity)
+
+# Reference values for comparison
+reference:
+  cd_experimental: 0.285  # Experimental drag coefficient for 25°
+  cl_experimental: -0.010
