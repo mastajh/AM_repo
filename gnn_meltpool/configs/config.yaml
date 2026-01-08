@@ -1,0 +1,64 @@
+model:
+  latent_dim: 128
+  num_message_passing: 15
+  node_features: 10  # x,y,z, T, phase, u,v,w, phi, type
+  edge_features: 4   # dx,dy,dz, dist
+  hidden_layers: 2
+  hidden_dim: 128
+  activation: 'relu'
+
+training:
+  batch_size: 4
+  learning_rate: 1.0e-4
+  scheduler: 'cosine'
+  epochs: 500
+  noise_std: 0.003
+  gradient_clip: 1.0
+  early_stopping_patience: 50
+  validation_interval: 10
+  checkpoint_interval: 20
+
+physics:
+  mass_weight: 0.1
+  surface_weight: 0.1
+  energy_weight: 0.01
+  curvature_weight: 0.01
+  use_physics_loss: true
+
+data:
+  train_sequences: 100
+  val_sequences: 20
+  test_sequences: 10
+  sequence_length: 200
+  dt: 1.0e-5  # time step (seconds)
+  world_edge_radius: 0.1  # radius for world-space edges
+  data_dir: 'data/processed'
+  raw_data_dir: 'data/raw'
+
+simulation:
+  # For synthetic data generation
+  domain_size: [1.0, 1.0, 0.5]  # x, y, z dimensions (mm)
+  num_particles: 1000
+  droplet_radius: 0.1  # mm
+  gravity: -9.81  # m/s^2
+  surface_tension: 0.07  # N/m (water-air)
+  density_liquid: 1000.0  # kg/m^3
+  density_gas: 1.0  # kg/m^3
+  viscosity: 0.001  # Pa·s
+  thermal_conductivity: 0.6  # W/(m·K)
+  specific_heat: 4186.0  # J/(kg·K)
+
+inference:
+  checkpoint_path: 'checkpoints/best_model.pt'
+  rollout_steps: 500
+  remesh_interval: 50
+  remesh_threshold: 0.5
+  save_trajectory: true
+  output_dir: 'outputs'
+
+logging:
+  use_wandb: false
+  use_tensorboard: true
+  log_dir: 'logs'
+  project_name: 'gnn_meltpool'
+  experiment_name: 'baseline'
