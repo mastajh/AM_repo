@@ -368,7 +368,7 @@ def run_rollout(
     model = load_checkpoint(checkpoint_path, config, device)
 
     # Load initial state
-    initial_data = torch.load(initial_state_path, map_location=device)
+    initial_data = torch.load(initial_state_path, map_location=device, weights_only=False)
 
     # Create rollout
     rollout = Rollout(model, config, device)

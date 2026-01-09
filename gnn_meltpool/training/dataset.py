@@ -59,12 +59,12 @@ class MeltPoolDataset(Dataset):
 
         print(f"Loaded {len(self.sequences)} sequences for {split} split")
 
-    def _load_sequences(self) -> List[Tuple[Path, int]]:
+    def _load_sequences(self) -> List[Tuple[Path, str]]:
         """
         Load list of available sequences.
 
         Returns:
-            List of (file_path, sequence_index) tuples
+            List of (file_path, sequence_key) tuples
         """
         sequences = []
 
@@ -75,13 +75,13 @@ class MeltPoolDataset(Dataset):
             return sequences
 
         for file_path in sorted(split_dir.glob('*.h5')):
-            # Check number of sequences in file
+            # Get all sequence keys in file
             with h5py.File(file_path, 'r') as f:
-                num_sequences = len([k for k in f.keys() if k.startswith('sequence_')])
+                seq_keys = [k for k in f.keys() if k.startswith('sequence_')]
 
             # Add all sequences from this file
-            for seq_idx in range(num_sequences):
-                sequences.append((file_path, seq_idx))
+            for seq_key in seq_keys:
+                sequences.append((file_path, seq_key))
 
         return sequences
 
@@ -122,14 +122,15 @@ class MeltPoolDataset(Dataset):
             - current_graph: PyG Data object with current state
             - target_delta: Target state changes [num_nodes, feature_dim]
         """
-        file_path, seq_idx = self.sequences[idx]
+        file_path, seq_key = self.sequences[idx]
 
         # Load sequence from file
         with h5py.File(file_path, 'r') as f:
-            seq_key = f'sequence_{seq_idx}'
+            # Get actual number of frames in this sequence
+            num_frames = len([k for k in f[seq_key].keys() if k.startswith('frame_')])
 
             # Load two consecutive frames
-            frame_idx = np.random.randint(0, self.sequence_length - 1)
+            frame_idx = np.random.randint(0, num_frames - 1)
 
             # Current frame
             graph_t = self._load_frame(f, seq_key, frame_idx)

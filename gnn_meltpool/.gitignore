@@ -1,0 +1,31 @@
+# Generated data (keep .gitkeep)
+data/processed/*
+!data/processed/.gitkeep
+data/raw/*
+!data/raw/.gitkeep
+data/*.pt
+
+# Model checkpoints (keep .gitkeep)
+checkpoints/*
+!checkpoints/.gitkeep
+
+# Outputs (keep .gitkeep)
+outputs/*
+!outputs/.gitkeep
+
+# Logs (keep .gitkeep)
+logs/*
+!logs/.gitkeep
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# IDE
+.vscode/
+.idea/
+
+# Jupyter
+.ipynb_checkpoints/

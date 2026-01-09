@@ -11,7 +11,7 @@ training:
   batch_size: 4
   learning_rate: 1.0e-4
   scheduler: 'cosine'
-  epochs: 500
+  epochs: 200
   noise_std: 0.003
   gradient_clip: 1.0
   early_stopping_patience: 50
