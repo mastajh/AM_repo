@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>[대전산단] 노후산단 영내거래 활성화의 'OASIS', 우주·국방 신뢰사슬 'AXIS-CHAIN' 구축 — 본부장 보고용</title>
+<style>
+  @page {
+    size: A4 portrait;
+    margin: 13mm 14mm 13mm 14mm;
+    @bottom-center {
+      content: "- " counter(page) " of " counter(pages) " -";
+      font-family: "Nanum Myeongjo", "NanumMyeongjo", serif;
+      font-size: 8.5pt;
+      color: #444;
+    }
+  }
+
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;color:#111;background:#fff;
+    font-family:"Nanum Myeongjo","NanumMyeongjo","함초롬바탕",serif;
+    font-size:9pt; line-height:1.4;}
+
+  /* 페이지 단위 */
+  .page{
+    page-break-after: always;
+    position: relative;
+    padding: 0;
+  }
+  .page:last-child{page-break-after:auto}
+
+  /* === 페이지 1 표제 === */
+  .title-box{
+    border:1.2pt solid #111;
+    padding:9pt 14pt;
+    margin-bottom:8pt;
+  }
+  .title-box .tag{
+    font-family:"Noto Sans KR","NotoSansCJKkr",sans-serif;
+    font-size:8pt; letter-spacing:.05em; color:#b34a2a;
+    font-weight:700; margin-bottom:3pt;
+  }
+  .title-box h1{
+    font-family:"Nanum Myeongjo",serif;
+    font-size:14pt; font-weight:800; line-height:1.3;
+    margin:0 0 5pt; color:#111;
+    letter-spacing:-.01em;
+  }
+  .title-box .sub{
+    font-size:9pt; line-height:1.5; color:#222;
+    border-top:.4pt solid #999; padding-top:4pt;
+    margin:0;
+  }
+
+  /* === 항목 위계 === */
+  h2.block{
+    font-family:"Nanum Myeongjo",serif;
+    font-size:11pt; font-weight:800; color:#111;
+    margin:6pt 0 3pt; letter-spacing:-.01em;
+  }
+  h2.block::before{content:"□  "; font-weight:800;}
+
+  h3.sub{
+    font-family:"Nanum Myeongjo",serif;
+    font-size:9.5pt; font-weight:700; color:#111;
+    margin:3pt 0 1pt; padding-left:8pt;
+  }
+  h3.sub::before{content:"ㅇ  "; font-weight:700;}
+
+  ul.l1, ol.l1, ul.l2, ul.l3 { padding:0; margin:1pt 0; list-style:none; }
+  ul.l1 > li, ol.l1 > li {
+    padding-left:14pt; position:relative; margin:1.5pt 0;
+    font-size:9.5pt; line-height:1.45; color:#222;
+  }
+  ul.l1 > li::before { content:"ㅇ"; position:absolute; left:6pt; top:0; font-size:8.5pt;}
+  ol.l1 { counter-reset: lvl1; }
+  ol.l1 > li::before { content: counter(lvl1) "."; counter-increment: lvl1; position:absolute; left:0; top:0; font-weight:700;}
+
+  ul.l2{ padding-left:0; margin:1pt 0 1pt 22pt; }
+  ul.l2 > li {
+    padding-left:11pt; position:relative; margin:1pt 0;
+    font-size:9pt; line-height:1.45; color:#333;
+  }
+  ul.l2 > li::before { content:"-"; position:absolute; left:3pt; top:0; }
+
+  ul.l3{ padding-left:0; margin:1pt 0 1pt 30pt; list-style:none;}
+  ul.l3 > li{
+    padding-left:11pt; position:relative; margin:0.7pt 0;
+    font-size:8.5pt; color:#444;
+  }
+  ul.l3 > li::before { content:"*"; position:absolute; left:3pt; top:0;}
+
+  /* 강조 키워드 */
+  b, strong{ font-weight:800; color:#111; }
+  .accent{ color:#b34a2a; font-weight:700; }
+  .num{ font-weight:800; }
+
+  /* 표 */
+  table.gov{
+    border-collapse:collapse;
+    width:100%;
+    font-family:"Noto Sans KR","NotoSansCJKkr",sans-serif;
+    font-size:8.5pt;
+    margin:3pt 0 2pt;
+  }
+  table.gov caption{
+    text-align:left; font-family:"Nanum Myeongjo",serif;
+    font-size:9pt; font-weight:700; padding:0 0 2pt; color:#111;
+  }
+  table.gov th, table.gov td{
+    border:.4pt solid #444;
+    padding:2.5pt 4pt; vertical-align:middle;
+    text-align:center;
+  }
+  table.gov{ border:.6pt solid #222; }
+  table.gov thead th{
+    background:#ececec; color:#111; font-weight:700;
+    border-bottom:.6pt solid #222;
+  }
+  table.gov tfoot td, table.gov tr.total td{
+    background:#f6f4ef; font-weight:700; color:#111;
+  }
+  table.gov td.l{ text-align:left; }
+
+  /* 캡션 박스 (벤더 박스) */
+  .org-card{
+    border:.5pt solid #222; padding:3pt 6pt 3pt;
+    margin:1.5pt 0;
+  }
+  .org-card .role-tag{
+    display:inline-block; font-family:"Noto Sans KR",sans-serif;
+    font-size:7pt; font-weight:700; color:#fff; background:#111;
+    padding:0.5pt 4pt; margin-right:4pt; vertical-align:1pt;
+  }
+  .org-card .name{ font-family:"Nanum Myeongjo",serif; font-weight:700;
+    font-size:9pt; color:#111;}
+  .org-card .role-line{
+    font-family:"Nanum Myeongjo",serif;
+    font-size:8pt; color:#444;
+  }
+  .org-card ul.l2{ margin:1pt 0 0 4pt; }
+  .org-card ul.l2 > li{ font-size:8pt; color:#333; line-height:1.35; margin:0.5pt 0;}
+
+  /* GRAPHIC placeholder */
+  .graphic{
+    border:.6pt dashed #b34a2a;
+    background:#fbf5f0;
+    padding:7pt 10pt 8pt;
+    margin:5pt 0;
+    position:relative;
+    page-break-inside: avoid;
+  }
+  .graphic::before{
+    content:"[ GRAPHIC · 한밭대 작도 ]";
+    position:absolute; top:-6pt; left:12pt;
+    background:#b34a2a; color:#fff;
+    font-family:"Noto Sans KR",sans-serif;
+    font-size:7pt; font-weight:700; padding:1pt 6pt;
+    letter-spacing:.06em;
+  }
+  .graphic .gtitle{
+    font-family:"Nanum Myeongjo",serif;
+    font-size:9.5pt; font-weight:700; color:#111;
+    margin:3pt 0 3pt;
+  }
+  .graphic .gpos{
+    font-family:"Noto Sans KR",sans-serif;
+    font-size:7.5pt; color:#666; margin:0 0 3pt;
+  }
+  .graphic .gel{
+    font-size:8.5pt; line-height:1.45; color:#222;
+    padding-left:10pt; margin:0;
+  }
+  .graphic .gel li{
+    list-style:none; margin:0.5pt 0; padding-left:9pt; position:relative;
+  }
+  .graphic .gel li::before{
+    content:"▸"; position:absolute; left:-1pt; top:0; color:#b34a2a;
+  }
+
+  /* 박스 — 인용/필수/참고 */
+  .quote-box{
+    border-left:2.5pt solid #b34a2a;
+    padding:3pt 0 3pt 10pt;
+    margin:4pt 0; font-size:9pt; line-height:1.5;
+  }
+  .ref-box{
+    border:.5pt solid #222; background:#fafaf6;
+    padding:5pt 8pt; margin:4pt 0;
+    font-size:9pt;
+  }
+  .ref-box h4{
+    font-family:"Nanum Myeongjo",serif;
+    font-weight:700; font-size:10pt; text-align:center;
+    margin:0 0 4pt; padding-bottom:3pt;
+    border-bottom:.4pt solid #cdc6b6; color:#111;
+  }
+
+  .vision-box{
+    border:1.2pt solid #111;
+    padding:8pt 14pt;
+    text-align:center; margin:4pt 0;
+  }
+  .vision-box .label{
+    font-family:"Noto Sans KR",sans-serif;
+    font-size:8pt; font-weight:700; color:#b34a2a;
+    letter-spacing:.1em; margin-bottom:3pt;
+  }
+  .vision-box .text{
+    font-family:"Nanum Myeongjo",serif;
+    font-size:11.5pt; font-weight:800; color:#111; line-height:1.35;
+    margin:0;
+  }
+  .goal-box{
+    border:.6pt solid #222; padding:6pt 10pt;
+    margin:4pt 0;
+  }
+  .goal-box .head{
+    font-weight:800; font-size:10pt; color:#111;
+    text-align:center; margin-bottom:4pt;
+  }
+  .goal-flow{
+    display:table; width:100%; margin-top:3pt;
+    border-collapse:collapse;
+  }
+  .goal-flow > div{
+    display:table-cell; vertical-align:middle;
+    padding:4pt 6pt; text-align:center;
+    border:.4pt solid #999; background:#fff;
+    font-size:8.5pt; line-height:1.35;
+  }
+  .goal-flow .arrow{
+    border:none; background:none; font-weight:800;
+    color:#b34a2a; font-size:12pt; padding:0 3pt; width:14pt;
+  }
+  .goal-flow b{display:block; font-size:9pt; margin-bottom:1pt;}
+
+  /* 페이지 1 부제 영역 */
+  .preamble{
+    font-family:"Nanum Myeongjo",serif;
+    font-size:9pt; line-height:1.55; color:#222;
+    margin:4pt 0 7pt;
+  }
+
+  /* 페이지 2 비교 박스 */
+  .compare{
+    display:table; width:100%; border-collapse:separate; margin:3pt 0;
+  }
+  .compare > div{
+    display:table-cell; vertical-align:top; padding:5pt 8pt;
+    border:.6pt solid #222; width:50%;
+  }
+  .compare > div:first-child{ border-right:none; }
+  .compare h5{
+    font-family:"Nanum Myeongjo",serif;
+    font-size:9.5pt; font-weight:800; color:#111;
+    margin:0 0 3pt; padding-bottom:2pt;
+    border-bottom:.4pt solid #999; text-align:center;
+  }
+  .compare ul{ list-style:none; padding:0; margin:0;}
+  .compare li{
+    font-size:8.5pt; line-height:1.45; color:#222;
+    padding-left:8pt; position:relative;
+  }
+  .compare li::before{
+    content:"·"; position:absolute; left:2pt; font-weight:800;
+  }
+
+  .center-msg{
+    border:.4pt dashed #b34a2a; background:#fff8f3;
+    padding:3pt 8pt; margin:2pt 0; text-align:center;
+    font-size:8.5pt; color:#222; font-weight:700;
+  }
+
+  /* 박스 모듈 카드 (인프라) */
+  .infra-grid{ display:flex; flex-wrap:wrap; gap:3pt; margin:2pt 0; }
+  .infra-card{
+    flex: 1 1 30%; border:.5pt solid #222; background:#fff;
+    padding:2pt 5pt; min-height:0;
+  }
+  .infra-card .ic-num{
+    font-family:"Noto Sans KR",sans-serif;
+    font-size:6.5pt; font-weight:700; color:#b34a2a;
+    letter-spacing:.05em;
+  }
+  .infra-card .ic-name{
+    font-family:"Nanum Myeongjo",serif; font-weight:700;
+    font-size:8pt; color:#111; margin:0;
+  }
+  .infra-card .ic-desc{ font-size:7.5pt; line-height:1.3; color:#444;}
+
+  /* 추진 전략 핵심 5축 */
+  .axis-list{ counter-reset: ax; padding:0; margin:4pt 0; list-style:none; }
+  .axis-list > li{
+    counter-increment: ax; position:relative;
+    padding:4pt 0 4pt 28pt; border-bottom:.4pt dashed #cdc6b6;
+    font-size:9pt; line-height:1.5;
+  }
+  .axis-list > li:last-child{border-bottom:0;}
+  .axis-list > li::before{
+    content: counter(ax); position:absolute; left:4pt; top:5pt;
+    width:16pt; height:16pt;
+    background:#b34a2a; color:#fff; border-radius:50%;
+    text-align:center; line-height:16pt;
+    font-family:"Noto Sans KR",sans-serif;
+    font-size:9pt; font-weight:700;
+  }
+  .axis-list > li b{ display:block; margin-bottom:1pt;}
+
+  /* 메타 표지(페이지 헤더) */
+  .doc-meta{
+    text-align:right; font-family:"Noto Sans KR",sans-serif;
+    font-size:8.5pt; color:#666; margin:0 0 4pt;
+  }
+
+  .small{ font-size:8.5pt; color:#444;}
+  .footnote{
+    font-size:7.8pt; color:#444; margin:1pt 0 0 22pt; line-height:1.4;
+  }
+  .footnote::before{ content:"* "; }
+
+  /* 헬퍼 */
+  .mt0{margin-top:0!important}
+  .nb{font-weight:800; color:#111}
+  .num-box{
+    display:inline-block;
+    width:14pt; height:14pt;
+    background:#111; color:#fff; text-align:center;
+    line-height:14pt; font-family:"Noto Sans KR",sans-serif;
+    font-size:9pt; font-weight:800;
+    vertical-align:-2pt; margin-right:5pt;
+  }
+  /* 페이지 헤더 라인 */
+  .page-head{
+    border-bottom:.6pt solid #111; padding-bottom:3pt; margin-bottom:5pt;
+    display:flex; align-items:baseline; justify-content:space-between;
+  }
+  .page-head .ph-id{
+    font-family:"Noto Sans KR",sans-serif;
+    font-size:8pt; font-weight:700; color:#b34a2a; letter-spacing:.1em;
+  }
+  .page-head .ph-name{
+    font-family:"Nanum Myeongjo",serif;
+    font-size:10.5pt; font-weight:700; color:#111;
+  }
+
+  /* 첫 페이지 — 별도 처리 */
+  .cover{ padding-top:4pt; }
+
+  /* table 행 합치기를 위한 td */
+  table.gov td.merge-y{
+    background:#fafaf6; font-weight:700; color:#111; vertical-align:middle;
+  }
+
+  /* dense table — 6 페이지 BM */
+  table.dense{ font-size:7.8pt; margin:2pt 0; }
+  table.dense th, table.dense td{ padding:1.5pt 4pt;}
+</style>
+</head>
+<body>
+
+<!-- ==================================================================
+    PAGE 1 — 표지 + 사업 개요
+=================================================================== -->
+<section class="page cover">
+
+  <div class="doc-meta">2026.05.18~19 본부장 사전 보고용 · 비공개</div>
+
+  <!-- BLOCK 1-1 타이틀 박스 -->
+  <div class="title-box">
+    <div class="tag">[대전산단] 2026 AX 실증산단 구축사업 컨소시엄 안</div>
+    <h1>노후산단 영내거래 활성화의 ‘OASIS’,<br>
+        우주·국방 신뢰사슬 ‘AXIS-CHAIN’ 구축</h1>
+    <p class="sub">대전산업단지의 입주기업을 대상으로 <b>온톨로지 기반 적응적 공급망 매칭(OASIS)</b>과
+       <b>항상-동작 센싱 사슬(AXIS-CHAIN)</b>을 결합한 『대전 AX 실증산단』 구축</p>
+  </div>
+
+  <!-- BLOCK 1-2 사업 개요 -->
+  <h2 class="block">사업 개요</h2>
+  <ul class="l1">
+    <li>(규모) 총 <b>196억원</b>(국비 <b>140억</b>, 매칭 <b>56억</b> / 매칭 = 지방비 + 민간부담금 + 산단공 자산 현물), <b>‘26 ~ ‘29년 (4년간)</b>
+      <ul class="l3">
+        <li>매칭은 정부출연금 대비 40% 이상 의무 (공고 기준)</li>
+        <li>사업기간 종료 후 <b>성과활용 5년</b> 이상 운영 의무</li>
+      </ul>
+    </li>
+    <li>(지원대상) <b>대전산업단지(거점산단) + 대덕연구개발특구·연계산단</b>
+      <ul class="l3">
+        <li>대전산단 입주기업 약 <b>970개</b>, 생산액 <b>4조원</b> / 대덕특구 약 <b>2,347개</b>, 생산액 <b>19조원</b></li>
+        <li>대전산단은 50년된 노후산단으로 기계·금속 기반 전통제조 58%, 영내거래·디지털 전환 시급</li>
+      </ul>
+    </li>
+    <li>(사업주체) <b>(주관) 한국전자기술연구원(KETI)</b>
+      <ul class="l2">
+        <li><b>(참여 / 앵커기업)</b> ㈜링크솔루션 · ㈜액스비스</li>
+        <li><b>(참여 / 기관)</b> 대전TP · 한밭대 · <b>한국산업단지공단 충청권본부 (필수참여, 본 공고 자격요건)</b></li>
+        <li><b>(협력)</b> 산업통상부 M.AX 얼라이언스 산단AX분과 · 대전광역시</li>
+      </ul>
+    </li>
+  </ul>
+
+  <!-- BLOCK 1-3 주요 내용 -->
+  <h2 class="block">주요 내용</h2>
+  <ul class="l1">
+    <li><b>OASIS</b>(Ontology-Adaptive Supply-chain Intelligent System) — <span class="accent">노후산단 영내거래 활성화의 오아시스</span>
+      <ul class="l2">
+        <li>온톨로지(T-Box·A-Box) + Multi-agent LLM 라우팅으로 수요-공급 자동 배정</li>
+        <li><b>‘영내 거래 활성화 에이전트’</b> 별도 탑재 — 공공성 시스템적 답변 메커니즘</li>
+        <li><b>다크팩토리</b>(㈜링크솔루션) 코어 + 후가공·열처리·후처리 기업 풀 연계</li>
+      </ul>
+    </li>
+    <li><b>AXIS-CHAIN</b>(Always-on eXchange Intelligence Sensing Chain) — <span class="accent">우주·국방 신뢰사슬</span>
+      <ul class="l2">
+        <li>5종 센서 노드(플라즈마광·음향방출·진동·비전·열화상) + 엣지 AI + Mesh 협동</li>
+        <li>노후 장비를 교체하지 않고 AI 모듈만 부착 → 산단 기업 즉시 편입</li>
+        <li>㈜액스비스 고정밀 장비 노하우 + 시계열 파형 분석 강점 활용</li>
+      </ul>
+    </li>
+    <li><b>두 축이 만들어내는 단일 신뢰 사슬</b> — 우주·국방 부품 인증의 핵심 요건인 <b>End-to-End Provenance(전 과정 이력추적)</b> 자동 생성</li>
+    <li>5극3특 정합 : <b>(중부권 코어) 대전산단 → (충청권 확장) 충북·충남 → (전국 확장) 5극3특 + 강원후평 MINI 자동 정합</b></li>
+  </ul>
+
+  <!-- BLOCK 1-4 GRAPHIC -->
+  <div class="graphic">
+    <div class="gtitle">[그림 1] 대전 산업단지 ─ 국방·우주 소부장 제조생태계 구축</div>
+    <div class="gpos">위치: 페이지 1 하단 절반 · 색상: 파랑 계열(혁신·신뢰) + 부분 강조 빨강(앵커기업)</div>
+    <ul class="gel">
+      <li><b>(좌)</b> 수요산업 풀 — 인터그래비티(우주) · LIG넥스원·LIG정밀기술(국방) · 한국타이어 프리시전웍스(정밀가공)</li>
+      <li><b>(중상)</b> 대전산단(거점) ↔ 대덕특구·연계산단</li>
+      <li><b>(중)</b> <b>OASIS</b> 박스(다크팩토리·온톨로지 매칭) ↔ <b>AXIS-CHAIN</b> 박스(5종 센서·Mesh)</li>
+      <li><b>(우)</b> 대전산단 후가공·열처리 기업 풀 — 알로코 · 삼진정밀 · 애니베스트 · 스토닉 · 대창열처리 · 중앙목표</li>
+      <li><b>(하)</b> 수혜 확산 → 충청권 5극 → 5극3특 전국</li>
+    </ul>
+  </div>
+
+</section>
+
+
+<!-- ==================================================================
+    PAGE 2 — 추진 배경
+=================================================================== -->
+<section class="page">
+
+  <div class="page-head">
+    <span class="ph-id">PAGE 2</span>
+    <span class="ph-name">추진 배경</span>
+  </div>
+
+  <h2 class="block">추진 배경</h2>
+
+  <h3 class="sub">(정책 부합성) 산업부 M.AX 정책의 직접 정합 사업</h3>
+  <ul class="l3">
+    <li>산업부 「M.AX 얼라이언스」(2030년 100조원 부가가치 목표) 11번째 분과 = <b>「산업단지 AX 분과」</b>(2026.02 출범, 분과장 박민원 창원대 총장)</li>
+    <li>산단AX분과의 실행조직 = <b>MINI 얼라이언스</b> (M.AX Innovation Network in Industrial complexes)</li>
+    <li>2025년 1차 10개 MINI 선정 (창원·반월시화·울산·명지녹산·천안·군산·광주첨단·여수·대불·강원후평)</li>
+    <li>2026년 본 공고 = <b>2차 3개소 추가 선정</b> → 본 컨소시엄 선정 시 <b>대전 MINI 얼라이언스 자동 출범</b></li>
+  </ul>
+
+  <h3 class="sub">(수요산업) 대전시 우주·국방 산업 육성 + 5극3특 정책</h3>
+  <ul class="l3">
+    <li>대전시 <b>방산혁신클러스터</b> 지정(‘22.6) + <b>우주클러스터</b> 지정(‘22.12)</li>
+    <li>‘22~‘26 국방 중기계획 : 국방부품 조달·공급·정비에 AI·3D프린팅 적용</li>
+    <li>제4차 우주개발진흥 기본계획(‘23~‘27) : 최적 설계·제작 공정에 AI 활용</li>
+    <li><b>5극3특 정책</b> : 수도권 일극체제 타파 + 5극(중부·동남·대경·호남·수도) + 3특(강원·전북·제주) 성장엔진 육성</li>
+  </ul>
+
+  <h3 class="sub">(산단 성장정체) 50년 노후 대전산단 = 영내거래 단절 · 일감 역외유출</h3>
+  <ul class="l2">
+    <li>대전산단 약 <b>970개</b> 기업, 기계·금속 기반 전통제조 <b>58%</b></li>
+    <li>대덕특구 첨단부품 수요는 증가하나 <b>일감이 역외로 유출</b>되는 구조</li>
+    <li>영내거래 활성화 메커니즘 부재 → <b>OASIS = 노후산단 영내거래의 오아시스</b> 메타포 직접 정합</li>
+  </ul>
+
+  <h3 class="sub">(디지털 전환 → AI 전환 단계 진입)</h3>
+  <ul class="l2">
+    <li>기존 DX(Digital Transformation) 단계는 데이터 디지털화 중심</li>
+    <li>현 단계는 <b>AX(AI Transformation)</b>로 진입 — 데이터를 활용한 AI 모델이 핵심 자산</li>
+    <li>본 사업 = AI 모델 학습·서빙 인프라 + 산단 기업 자발적 확산 메커니즘 결합</li>
+  </ul>
+
+  <!-- BLOCK 2-2 GRAPHIC -->
+  <div class="graphic">
+    <div class="gtitle">[그림 보조] 대전산단(거점) ↔ 대덕특구(연계) 비교 · 중앙 지도</div>
+    <div class="compare" style="margin:6pt 0;">
+      <div>
+        <h5>대전산단 (거점산단)</h5>
+        <ul>
+          <li>기업 : 약 <b>970개</b></li>
+          <li>생산액 : <b>4조원</b></li>
+          <li>주요업종 : 기계·금속, 전기전자, 정밀가공</li>
+          <li>특징 : <b>50년 노후산단</b>, 영내거래 비효율, <b>일감 역외유출</b></li>
+        </ul>
+      </div>
+      <div>
+        <h5>대덕특구 (연계산단)</h5>
+        <ul>
+          <li>기업 : 약 <b>2,347개</b></li>
+          <li>생산액 : <b>19조원</b></li>
+          <li>주요업종 : 나노·반도체, <b>국방·우주항공</b>, 바이오헬스</li>
+          <li>특징 : 정부출연연 26개 포함, 국내 최고 혁신역량</li>
+        </ul>
+      </div>
+    </div>
+    <div class="gpos" style="margin-top:6pt;">중앙 지도 : 유성구·대덕연구단지(I)·대덕테크노밸리(II)·대덕산업단지(III) → 거점 대전산단 화살표</div>
+    <div class="center-msg">↻ 첨단수요(대덕특구) ↔ 부품공급(대전산단) 단거리 공급망</div>
+    <div class="center-msg">≈ OASIS = 그 공급망에 솟아나는 영내거래 오아시스</div>
+  </div>
+
+</section>
+
+
+<!-- ==================================================================
+    PAGE 3 — 사업 개요 (상세) + 기관 역할
+=================================================================== -->
+<section class="page">
+
+  <div class="page-head">
+    <span class="ph-id">PAGE 3</span>
+    <span class="ph-name">사업 개요 (상세)</span>
+  </div>
+
+  <h2 class="block">사업 개요</h2>
+  <ul class="l1">
+    <li>(사 업 명) <b>2026년 AX 실증산단 구축사업 [대전산단]</b>
+      <ul class="l3"><li>세부사업명 : 「2026년 스마트그린산업단지 촉진사업」 AX 실증산단 구축사업 (전담기관: 한국산업단지공단)</li></ul>
+    </li>
+    <li>(사업규모) 총 <b>196억원</b>(국비 <b>140억</b>, 매칭 <b>56억</b>), ‘26 ~ ‘29년 (4년)</li>
+  </ul>
+
+  <table class="gov">
+    <caption>&lt; 연차별 사업비 분배 &gt; <span style="float:right;font-weight:400;font-size:8.5pt;color:#666;">[ 단위 : 억원 ]</span></caption>
+    <thead>
+      <tr><th>구분</th><th>국비</th><th>매칭<br>(지방비·민간·자산현물)</th><th>합계</th><th>국비 비율</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>‘26 (1차년도)</td><td><b>20</b></td><td>8</td><td>28</td><td>71%</td></tr>
+      <tr><td>‘27 (2차년도)</td><td><b>50</b></td><td>20</td><td>70</td><td>71%</td></tr>
+      <tr><td>‘28 (3차년도)</td><td><b>50</b></td><td>20</td><td>70</td><td>71%</td></tr>
+      <tr><td>‘29 (4차년도)</td><td><b>20</b></td><td>8</td><td>28</td><td>71%</td></tr>
+    </tbody>
+    <tfoot>
+      <tr class="total"><td>합계</td><td>140</td><td>56</td><td>196</td><td>71%</td></tr>
+    </tfoot>
+  </table>
+  <p class="footnote">매칭 비율은 정부출연금 대비 40% 이상 의무 (공고 기준)</p>
+  <p class="footnote">매칭 구성 : 앵커기업 현금(㈜링크솔루션·㈜액스비스) + 대전시 현금/현물 + 산단공 충청권본부 자산 현물(공고 신규 항목) + 대전TP 입주공간·소부장 시설 현물</p>
+
+  <ul class="l1" style="margin-top:6pt;">
+    <li>(지원대상) 대전산업단지(거점산단) + 대덕연구개발특구·연계산단
+      <ul class="l2">
+        <li>입주업체 합계 약 <b>3,287개</b>, 생산액 <b>23조</b>, 근로자 <b>26.6천명</b></li>
+      </ul>
+    </li>
+  </ul>
+
+  <h2 class="block">사업주체 및 기관별 역할</h2>
+
+  <div class="org-card">
+    <span class="role-tag" style="background:#b34a2a;">주관</span>
+    <span class="name">한국전자기술연구원(KETI)</span>
+    <span class="role-line">— 통합 시스템 설계·운영</span>
+    <ul class="l2">
+      <li>OASIS / AXIS-CHAIN 통합 코어 설계 + 가상공장 실증 플랫폼 운영</li>
+      <li>GPU 인프라 운영 + 5G 특화망 운영 + AI 모델 학습·서빙</li>
+      <li>AX 종합지원센터 SW + 메뉴판 ②⑦④⑥ 메인 매핑</li>
+    </ul>
+  </div>
+
+  <div class="org-card">
+    <span class="role-tag">참여·앵커</span>
+    <span class="name">㈜링크솔루션</span>
+    <span class="role-line">— OASIS 다크팩토리 + 첨단제조 선도공장</span>
+    <ul class="l2">
+      <li>다크팩토리 양산 라인 구축 + 온톨로지 기반 수요-공급 매칭 엔진 개발</li>
+      <li>산단 후가공·열처리 기업 풀 오케스트레이션</li>
+      <li>메뉴판 ③(첨단제조 선도공장) + ⑥(SaaS) 매핑</li>
+    </ul>
+  </div>
+
+  <div class="org-card">
+    <span class="role-tag">참여·앵커</span>
+    <span class="name">㈜액스비스</span>
+    <span class="role-line">— AXIS-CHAIN 센서 + 정밀제조 선도공장</span>
+    <ul class="l2">
+      <li>5종 센서 노드(플라즈마광·음향방출·진동·비전·열화상) + Mesh 협동 네트워크 구축</li>
+      <li>노후 장비 AI 업그레이드 모듈(예열·이상알람·시계열 분석·OCR 마킹·X-Ray 비파괴) 보급</li>
+      <li>메뉴판 ③(정밀제조 선도공장) + ⑥(SaaS) 매핑</li>
+    </ul>
+  </div>
+
+  <div class="org-card">
+    <span class="role-tag">참여</span>
+    <span class="name">대전테크노파크(대전TP)</span>
+    <span class="role-line">— 종합지원센터 HW + 대전 MINI 얼라이언스 운영</span>
+    <ul class="l2">
+      <li>종합지원센터 HW 운영 + 오픈랩(체험) 공간 + 5G 특화망 매칭 + 산단공 자산·소부장 시설 연계</li>
+      <li><b>대전 MINI 얼라이언스 운영 주관</b> (작성법·운영방법 보강 진행 중)</li>
+      <li>메뉴판 ① + ⑦ 매핑</li>
+    </ul>
+  </div>
+
+  <div class="org-card">
+    <span class="role-tag">참여</span>
+    <span class="name">한밭대학교</span>
+    <span class="role-line">— PoC + R&amp;D 연계 + 체험형 교육</span>
+    <ul class="l2">
+      <li>산업부 DX→AX R&amp;D 4차년도 결과물 적용 (링크솔루션과 진행 중)</li>
+      <li>산단 입주기업 대상 현장형 AI 교육 + AX 벤치마킹 가이드 제작</li>
+      <li>메뉴판 ⑧(국가 R&amp;D 연계형) 매핑</li>
+    </ul>
+  </div>
+
+  <div class="org-card">
+    <span class="role-tag" style="background:#b34a2a;">참여·필수</span>
+    <span class="name">한국산업단지공단 충청권본부</span>
+    <span class="role-line">— 마스터플랜 + 자산매칭 + 공동간사</span>
+    <ul class="l2">
+      <li><b>본 공고 자격요건 — 모든 컨소시엄 필수 참여</b></li>
+      <li>산단 AX 마스터플랜 수립 담당자 배정 + 대전 MINI 얼라이언스 공동간사</li>
+      <li><b>공단 자산(시설 등) 현물 매칭</b> — 본 공고 신규 가이드 항목 직접 활용</li>
+    </ul>
+  </div>
+
+  <h2 class="block">사업내용 (개요)</h2>
+  <ul class="l1">
+    <li>본 사업은 공고 메뉴판 9개 유형 중 <b>혼합형으로 5개 유형 매핑 (메뉴 ①②③④⑥⑦⑧)</b> + ⑨ 자유제안형 일부 결합</li>
+    <li><b>메인 메뉴</b> : ② AX 가상공장 실증플랫폼 / ③ AX 대표 선도공장 / ⑥ SaaS 기반 제조 AI 서비스 / ⑦ AX 종합지원센터</li>
+    <li><b>보조 메뉴</b> : ① 제조 AI 오픈랩 / ④ 특화망 기반 제조 AI 실증 / ⑤ 디지털트윈 산단관리 실증(산단공 참여로 매핑) / ⑧ 국가 R&amp;D 연계형</li>
+    <li><b>AX 얼라이언스(공고 4번째 과업) = 대전 MINI 얼라이언스 운영</b> (대전TP 주관)</li>
+  </ul>
+
+</section>
+
+
+<!-- ==================================================================
+    PAGE 4 — 사업 목표 및 추진체계
+=================================================================== -->
+<section class="page">
+
+  <div class="page-head">
+    <span class="ph-id">PAGE 4</span>
+    <span class="ph-name">사업 목표 및 추진체계</span>
+  </div>
+
+  <h2 class="block">사업 목표 및 추진체계</h2>
+
+  <!-- 비전 -->
+  <div class="vision-box">
+    <div class="label">VISION · 비전</div>
+    <p class="text">50년 노후 대전산단을<br>
+      우주·국방 첨단부품 신뢰사슬 거점으로 탈바꿈</p>
+  </div>
+
+  <!-- 목적 -->
+  <div class="goal-box">
+    <div class="head">목 적</div>
+    <p style="text-align:center;font-size:10pt;line-height:1.6;margin:0;">
+      『OASIS · AXIS-CHAIN 구축』을 통해 <b>노후 대전산단을 영내거래 활성화 + 우주·국방 신뢰사슬 거점</b>으로
+      탈바꿈하고, 5극3특 정책에 정합한 권역 확장 모델 구축
+    </p>
+  </div>
+
+  <!-- 목표 (단계별 화살표) -->
+  <div class="goal-box">
+    <div class="head">목 표 — ‘29년까지 대전산단 입주기업의 15%, OASIS·AXIS-CHAIN 활용 디지털혁신</div>
+    <div class="goal-flow">
+      <div><b>OASIS · AXIS-CHAIN<br>인프라</b><span class="num">2개 시스템</span><br>(OASIS 1 + AXIS-CHAIN 1)</div>
+      <div class="arrow">→</div>
+      <div><b>AX 디지털혁신</b><span class="num">혁신 100개사</span><br>+ 디지털혁신 제품 <b>20개</b></div>
+      <div class="arrow">→</div>
+      <div><b>산단기업 디지털전환<br>+ 우주·국방 신뢰사슬</b><br>충청권 5극 → 5극3특<br>확산 기반 마련</div>
+    </div>
+  </div>
+
+  <table class="gov">
+    <caption>&lt; 연차별 정량 목표 &gt;</caption>
+    <thead>
+      <tr><th style="text-align:left;">지표</th><th>1차년도</th><th>2차년도</th><th>3차년도</th><th>4차년도</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="l">OASIS 다크팩토리 + 매칭 풀 등록기업</td><td>10개사</td><td>30개사</td><td>50개사</td><td>80개사</td></tr>
+      <tr><td class="l">AXIS-CHAIN 센서노드 보급 라인</td><td>-</td><td>5개라인</td><td>15개라인</td><td>30개라인</td></tr>
+      <tr><td class="l">실증기업 (3·4차년도 집행)</td><td>-</td><td>-</td><td>2개사</td><td>2개사</td></tr>
+      <tr><td class="l">디지털혁신 제품 창출</td><td>-</td><td>5개</td><td>8개</td><td>7개</td></tr>
+      <tr><td class="l">단일 신뢰사슬(Provenance) 인증 부품</td><td>-</td><td>-</td><td>50개</td><td>200개</td></tr>
+    </tbody>
+  </table>
+
+  <!-- BLOCK 4-2 GRAPHIC -->
+  <div class="graphic">
+    <div class="gtitle">[그림 2] 추진체계 및 연계전략</div>
+    <div class="gpos">위치: 페이지 4 하단 절반 · 색상: 파랑 + 강조 빨강(거점), 노랑(궤도형 확장 단계)</div>
+    <ul class="gel">
+      <li><b>(좌)</b> 우주·국방 수요 — 인터그래비티(우주) · LIG넥스원·LIG정밀기술(국방) · 한국타이어 프리시전웍스(정밀가공) · KARI(한국항공우주연구원) · 국방부 평가실증</li>
+      <li><b>(중상)</b> 대덕특구(첨단수요·연계산단) ↔ 대전산단(부품공급·거점산단)</li>
+      <li><b>(중)</b> 「OASIS · AXIS-CHAIN 통합 디지털 협업센터」 박스
+        <ul class="gel" style="margin-top:2pt;">
+          <li>종합지원센터 : KETI(SW·AI 모델·GPU) + 대전TP(HW·공간) + 한밭대(PoC·교육)</li>
+          <li>선도공장 2개 : ㈜링크솔루션(첨단제조/다크팩토리) + ㈜액스비스(정밀제조/센서)</li>
+        </ul>
+      </li>
+      <li><b>(우)</b> 단일 신뢰사슬 산출 → 우주·국방 평가·인증</li>
+      <li><b>(하)</b> 5극3특 4단계 동심원 확장 (앵커 → 대전산단 → 충청권 → 5극3특)</li>
+    </ul>
+  </div>
+
+</section>
+
+
+<!-- ==================================================================
+    PAGE 5 — 센터 구축
+=================================================================== -->
+<section class="page">
+
+  <div class="page-head">
+    <span class="ph-id">PAGE 5</span>
+    <span class="ph-name">센터 구축</span>
+  </div>
+
+  <h2 class="block">센터 구축</h2>
+  <ul class="l1">
+    <li>AX 협업센터 = 『OASIS · AXIS-CHAIN 통합 디지털 협업센터』 구축</li>
+    <li>대전산단 內 <b>종합지원센터(근접지원)</b> + 대덕특구 內 <b>실증플랫폼(정밀지원)</b> 병행 운영
+      <ul class="l3"><li>PDF 원본의 정밀지원-근접지원 양분 구조 그대로 유지</li></ul>
+    </li>
+  </ul>
+
+  <!-- BLOCK 5-2 GRAPHIC -->
+  <div class="graphic">
+    <div class="gtitle">[그림 3] 「OASIS · AXIS-CHAIN 통합 디지털 협업센터」 모식도</div>
+    <div class="gpos">위치: 페이지 5 상단 · 양 센터 간 5G 특화망 + GPU 모델 서빙 양방향 화살표</div>
+    <ul class="gel">
+      <li><b>(상단 박스)</b> 「OASIS · AXIS-CHAIN 통합 디지털 협업센터」</li>
+      <li><b>(좌) 정밀지원 — 대덕특구 內</b> : AI 모델 학습 GPU 클러스터 + 가상공장 실증플랫폼 + 디지털트윈</li>
+      <li><b>(우) 근접지원 — 대전산단 內</b> : 5G 특화망 서빙 + 오픈랩 체험 + 현장 컨설팅</li>
+      <li><b>(연결)</b> 양 센터 간 5G 특화망 + GPU 모델 서빙 양방향</li>
+    </ul>
+  </div>
+
+  <h2 class="block">(근접지원센터) 대전산단 內 OASIS · AXIS-CHAIN 상시 기술지원</h2>
+  <p class="footnote">대전TP 소부장 사업 기구축 시설 연계 + 산단공 충청권본부 자산(청년창호인대공장 3층 또는 복합문화센터) 현물 매칭</p>
+  <ul class="l2" style="margin-left:18pt;">
+    <li>대전산단의 OASIS · AXIS-CHAIN 기술 상시 지원 창구</li>
+    <li>대전TP 기구축 3D프린팅·소부장 인프라 직접 연계 운영</li>
+    <li>5G 특화망 기반 AI 모델 실시간 서빙 (산단 기업 직접 접속)</li>
+    <li>산단 기업 대상 AX 수준진단 + 컨설팅 + 체험형 교육</li>
+    <li>노후 장비 AXIS-CHAIN 모듈 부착 현장 지원</li>
+  </ul>
+
+  <h2 class="block">(정밀지원센터) 대덕특구 內 OASIS · AXIS-CHAIN 정밀 기술지원</h2>
+  <p class="footnote">KETI 대전 satellite 사무소 + 대전TP 지능로봇센터 공간 활용 검토</p>
+  <ul class="l2" style="margin-left:18pt;">
+    <li>OASIS 온톨로지(T-Box·A-Box) 운영 + Multi-agent LLM 라우팅 엔진</li>
+    <li>AXIS-CHAIN 5종 센서 통합 모니터링 + Mesh 협동 운영</li>
+    <li>AI 모델 학습용 GPU 클러스터 운영 (학습 H200/H100급 + 추론 A100급)</li>
+    <li>우주·국방 부품 단일 신뢰사슬 데이터 생성·관리</li>
+    <li>신제품·신공정 검증 협업공간 + 우주·국방 수요·공급 연계</li>
+  </ul>
+
+</section>
+
+
+<!-- ==================================================================
+    PAGE 6 — 인프라 구축 + BM + 기대효과
+=================================================================== -->
+<section class="page">
+
+  <div class="page-head">
+    <span class="ph-id">PAGE 6</span>
+    <span class="ph-name">인프라 구축 · 자립화 BM · 기대효과</span>
+  </div>
+
+  <h2 class="block">인프라 구축 : OASIS · AXIS-CHAIN 전주기 기술지원 장비</h2>
+
+  <h3 class="sub">(OASIS) 온톨로지 매칭 + 다크팩토리 + 적응적 라우팅</h3>
+  <div class="infra-grid">
+    <div class="infra-card"><div class="ic-num">M-01</div><div class="ic-name">온톨로지 운영 SW</div><div class="ic-desc">T-Box·A-Box / 산업부 RS-2026-25602234 자산 직접 이식</div></div>
+    <div class="infra-card"><div class="ic-num">M-02</div><div class="ic-name">Multi-agent LLM 라우팅</div><div class="ic-desc">단가·납기·인증·<b>영내거래활성화</b> 4종 에이전트</div></div>
+    <div class="infra-card"><div class="ic-num">M-03</div><div class="ic-name">Graph-RAG + XAI</div><div class="ic-desc">매칭 근거 시각화 / 의사결정 설명</div></div>
+    <div class="infra-card"><div class="ic-num">M-04</div><div class="ic-name">다크팩토리 코어</div><div class="ic-desc">AI 에이전트 + 오케스트레이터 (㈜링크솔루션)</div></div>
+  </div>
+
+  <h3 class="sub">(AXIS-CHAIN) 센서 노드 + 엣지 AI + Mesh 협동</h3>
+  <div class="infra-grid">
+    <div class="infra-card" style="flex-basis:18%;"><div class="ic-num">① 플라즈마 광</div><div class="ic-desc">용접 모니터링</div></div>
+    <div class="infra-card" style="flex-basis:18%;"><div class="ic-num">② 음향 방출</div><div class="ic-desc">이상 감지</div></div>
+    <div class="infra-card" style="flex-basis:18%;"><div class="ic-num">③ 진동</div><div class="ic-desc">예지정비</div></div>
+    <div class="infra-card" style="flex-basis:18%;"><div class="ic-num">④ 비전</div><div class="ic-desc">외관·결함 / AdaptCLIP zero-shot</div></div>
+    <div class="infra-card" style="flex-basis:18%;"><div class="ic-num">⑤ 열화상</div><div class="ic-desc">열 분포 / 적층제조 AM-Watch</div></div>
+  </div>
+
+  <h3 class="sub">(공통 인프라) GPU 클러스터 + 5G 특화망 + 종합지원센터</h3>
+  <div class="infra-grid">
+    <div class="infra-card"><div class="ic-num">학습용 GPU 클러스터</div><div class="ic-desc">H200 또는 H100 NVL급 다대 + 추론 A100급</div></div>
+    <div class="infra-card"><div class="ic-num">5G 특화망 장비</div><div class="ic-desc">공공기관 운영 시 전파료·시설사용료 면제 활용</div></div>
+    <div class="infra-card"><div class="ic-num">종합지원센터 HW</div><div class="ic-desc">대전TP 운영 + 오픈랩 체험 공간</div></div>
+  </div>
+
+  <h2 class="block">자립화 비즈니스 모델 (성과활용 5년)</h2>
+
+  <table class="gov dense">
+    <caption>&lt; 8종 수익원 &gt;</caption>
+    <thead>
+      <tr><th style="width:6%;">#</th><th style="width:34%;text-align:left;">수익원</th><th style="text-align:left;">내용</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>①</td><td class="l">OASIS SaaS (Smart Quote · Adaptive Routing · Capacity Pulse)</td><td class="l">산단 기업 구독</td></tr>
+      <tr><td>②</td><td class="l">AXIS-CHAIN 라이선스 (5종 모듈)</td><td class="l">라인·장비별 구독</td></tr>
+      <tr><td>③</td><td class="l">GPU 임대 (외부 학습 워크로드)</td><td class="l">대학·연구소 시간당</td></tr>
+      <tr><td>④</td><td class="l">컨설팅·교육</td><td class="l">KETI + 대전TP + 한밭대</td></tr>
+      <tr><td>⑤</td><td class="l">라우팅 거래액 수수료</td><td class="l">거래액 0.5%</td></tr>
+      <tr><td>⑥</td><td class="l"><b>Provenance Pack</b> (우주·국방 인증 데이터 패키지)</td><td class="l">본 사업 단독 수익원</td></tr>
+      <tr><td>⑦</td><td class="l"><b>Twin Sandbox</b> (충남·충북·전북 산단 라이선스)</td><td class="l">5극3특 자연 BM</td></tr>
+      <tr><td>⑧</td><td class="l"><b>Carbon-Trace Module</b> (EU CBAM 대응)</td><td class="l">수출 제조기업</td></tr>
+    </tbody>
+  </table>
+
+  <table class="gov dense">
+    <caption>&lt; 5년 누적 손익 &gt; <span style="float:right;font-weight:400;font-size:8pt;color:#666;">[ 단위 : 억원 ]</span></caption>
+    <thead>
+      <tr><th>연차</th><th>4차(‘29)</th><th>5차(‘30)</th><th>6차(‘31)</th><th>7차(‘32)</th><th>8차(‘33)</th><th>9차(‘34)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>매출</td><td>15</td><td>25</td><td>35</td><td>50</td><td>60</td><td>70</td></tr>
+      <tr><td>운영비</td><td>9</td><td>14</td><td>19</td><td>26</td><td>30</td><td>33</td></tr>
+      <tr><td>순익</td><td>6</td><td>11</td><td>16</td><td>24</td><td>30</td><td>37</td></tr>
+      <tr class="total"><td>누적순익</td><td>6</td><td>17</td><td>33</td><td>57</td><td>87</td><td><b>124</b></td></tr>
+    </tbody>
+  </table>
+
+  <div class="quote-box">
+    <b>성과활용 5년 누적 순익 124억</b> = 정부출연금 140억의 <b>89% 회수</b> → 영구 자립화
+  </div>
+
+  <h3 class="sub">수익금 의무 사용처 <span style="font-weight:400;font-size:7.5pt;color:#666;">(공고 §9 산단 입주기업 지원 및 AX 확산에 사용 준수 규정)</span></h3>
+  <ul class="l2" style="margin-left:18pt; columns:2; column-gap:14pt;">
+    <li><b>35%</b> 신규 산단기업 OASIS 등록 · AXIS 노드 보급</li>
+    <li><b>25%</b> 산단기업 무료 컨설팅 · 교육</li>
+    <li><b>20%</b> 시스템 유지 · 고도화</li>
+    <li><b>10%</b> MINI 얼라이언스 · M.AX 카라반 운영</li>
+    <li><b>10%</b> 마스터플랜 갱신 + 차세대 R&amp;D Seed</li>
+  </ul>
+
+  <h2 class="block">기대효과</h2>
+  <ul class="l1">
+    <li><b>(노후산단의 AX 거점화)</b> 50년 노후 대전산단을 OASIS 영내거래 활성화 + AXIS-CHAIN 신뢰사슬 거점으로 탈바꿈</li>
+    <li><b>(우주·국방 부품 단일 신뢰사슬 확보)</b> End-to-End Provenance 자동 생성 → 우주·국방 인증 요건 자동 충족, 부품 수입 의존도 저감</li>
+    <li><b>(5극3특 정책 직접 정합)</b> 시스템 자체가 권역 확장을 메커니즘으로 내장 → 충청권 5극 → 5극3특 전국 자연 확산</li>
+    <li><b>(M.AX 얼라이언스 핵심 거점)</b> 대전 MINI 얼라이언스 자동 출범 + AI 방산·AI 팩토리·AI 제조서비스 등 분과 직결</li>
+    <li><b>(자립화 + 산단 환원)</b> 5년 누적 순익 <b>124억</b> + <b>35%+</b> 산단 신규 기업 직접 환원</li>
+  </ul>
+
+</section>
+
+
+<!-- ==================================================================
+    PAGE 7 — 참고 · 추진 전략
+=================================================================== -->
+<section class="page">
+
+  <div class="page-head">
+    <span class="ph-id">PAGE 7</span>
+    <span class="ph-name">[참고] 추진 전략</span>
+  </div>
+
+  <div class="ref-box">
+    <h4>참 고 — 추진 전략</h4>
+
+    <div class="graphic" style="border-color:#222;background:#fff;margin:0 0 6pt;">
+      <div class="gtitle">[그림 4] 「OASIS · AXIS-CHAIN 기반 대전 AX 실증산단 추진 전략」</div>
+      <div class="gpos">위치 : 페이지 7 전체 · 4단계 동심원 + 단일 신뢰사슬 · 색상 : 코어=짙은 파랑, 외곽=옅은 파랑·노랑</div>
+
+      <div class="center-msg" style="margin-top:6pt;">↻ 노후 대전산단의 영내거래 활성화 (OASIS) ↔ 우주·국방 신뢰사슬 (AXIS-CHAIN)</div>
+      <div class="center-msg">⊕ 5극3특 권역 단계 확장 (대전 → 충청권 → 5극 → 3특)</div>
+
+      <ul class="gel" style="margin-top:6pt;">
+        <li><b>(상좌)</b> 우주산업 풀 — 인터그래비티 · KARI 등</li>
+        <li><b>(상우)</b> 국방산업 풀 — LIG넥스원 · 국방부</li>
+        <li><b>(중앙 동심원, 안에서 밖으로)</b>
+          <ul class="gel" style="margin-top:2pt;">
+            <li>① 코어 — OASIS · AXIS-CHAIN 두 축</li>
+            <li>② 대전산단 코어축 — 알로코 · 삼진정밀 · LIG정밀기술 · 인터그래비티 · 한국타이어 프리시전웍스</li>
+            <li>③ 충청권 5극(중부권) — 충북(충주·청주) + 충남(아산부곡·천안) + 천안 MINI 권역 통합</li>
+            <li>④ 5극3특 전국 — <b>강원후평 MINI(3특 자동 정합)</b> + 5극 타권역 + 전북·제주 정합</li>
+          </ul>
+        </li>
+        <li><b>(하단 메시지)</b> “50년 노후 대전산단을 우주·국방 단일 신뢰사슬 거점으로”</li>
+      </ul>
+    </div>
+
+    <h4 style="margin-top:10pt;">추진 전략 핵심 5축</h4>
+    <ol class="axis-list">
+      <li><b>(공공성 시스템화)</b>
+        OASIS의 4번째 에이전트 = 영내거래 활성화 에이전트 → 산단공 핵심 지적(“공급은 있는데 수요가 없다”)에 시스템적 답변</li>
+      <li><b>(우주·국방 fit-for-purpose)</b>
+        두 축이 자동 생성하는 단일 신뢰사슬 = 우주·국방 부품 인증의 4중 요건 자동 충족</li>
+      <li><b>(5극3특 권역 확장 메커니즘)</b>
+        온톨로지 A-Box 인스턴스 추가만으로 신규 기업·산단 즉시 편입 → 시스템 자체가 권역 확장 메커니즘</li>
+      <li><b>(M.AX 얼라이언스 자연 결합)</b>
+        본 컨소시엄 선정 = 대전 MINI 얼라이언스 자동 출범, 1차 10개 MINI(특히 천안·강원후평)와 권역 협력 자동 발생</li>
+      <li><b>(자립화 BM 다중 구조)</b>
+        8종 수익원 + 5년 누적 <b>124억</b> → 권역 확장이 매출 증가로 직결되는 자연 BM</li>
+    </ol>
+  </div>
+
+</section>
+
+</body>
+</html>
